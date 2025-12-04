@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEY HEY PEE | Premium Food & Professional Service</title>
+    <meta name="description"
+        content="hayhaypee catering offers premium catering services for weddings, corporate events, and private parties. Request a quote for quality food, professional service, and affordable packages.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="./MEADIA/HAY HAY PEE CATERING LOGO.png" type="image/x-icon">
+
+    <style>
+        :root {
+            --primary: #d4af37;
+            --secondary: #1a1a1a;
+            --accent: #8b0000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .typewriter-text {
+            border-right: 2px solid var(--primary);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--primary);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8941f;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translate(0, 0px);
+            }
+
+            50% {
+                transform: translate(0, 10px);
+            }
+
+            100% {
+                transform: translate(0, -0px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#d4af37',
+                        'dark-gold': '#b8941f',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-gray-800">HAY HAY PEE<span class="text-yellow-600"> Catering</span>
+                </h1>
+            </div>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-yellow-600 transition">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-yellow-600 transition">About</a>
+                <a href="#services" class="text-gray-700 hover:text-yellow-600 transition">Services</a>
+                <a href="#menu" class="text-gray-700 hover:text-yellow-600 transition">Menu</a>
+                <a href="#pricing" class="text-gray-700 hover:text-yellow-600 transition">Pricing</a>
+                <a href="#contact" class="text-gray-700 hover:text-yellow-600 transition">Contact</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#request-form" class="btn-primary px-4 py-2 rounded-md font-medium pulse">Request Catering</a>
+                <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-white shadow-lg hidden" id="mobile-menu">
+            <div class="px-4 py-2 space-y-3">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-yellow-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-yellow-600">About Us</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-yellow-600">Services</a>
+                <a href="#menu" class="block py-2 text-gray-700 hover:text-yellow-600">Menu</a>
+                <a href="#pricing" class="block py-2 text-gray-700 hover:text-yellow-600">Pricing</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-yellow-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-cover bg-center h-screen flex items-center"
+        style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.pinimg.com/736x/0c/1e/89/0c1e8911bb1fda2b854e8aaa468e2326.jpg');">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in">Exceptional Catering for <span
+                    class="typewriter-text" id="typewriter"></span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto fade-in">Premium quality food, professional service,
+                and unforgettable experiences for your special events.</p>
+            <div class="fade-in">
+                <a href="#request-form"
+                    class="btn-primary px-8 py-3 rounded-md text-lg font-semibold inline-block pulse">Request Catering
+                    Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">About Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Our story, passion, and commitment to excellence</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 fade-in">
+                    <img src="../MEADIA/HAY HAY PEE CATERING LOGO.png" alt="Our Team" class="rounded-lg shadow-lg">
+                </div>
+
+                <div class="md:w-1/2 fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Passion for Culinary Excellence</h3>
+                    <p class="text-gray-600 mb-4"> HEY HEY PEE was Founded in 2015, HEY HEY PEE has grown from a small
+                        family business
+                        to one of most trusted catering services. Our journey began with a simple passion: creating
+                        exceptional food that brings people together.</p>
+                    <p class="text-gray-600 mb-6">We believe that every event, whether an intimate gathering or a grand
+                        celebration, deserves the same level of attention, quality ingredients, and professional
+                        service. Our team of experienced chefs and event specialists work tirelessly to ensure your
+                        event is memorable for all the right reasons.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-utensils text-yellow-600"></i>
+                            </div>
+                            <span class="text-gray-700">Fresh Ingredients</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-user-tie text-yellow-600"></i>
+                            </div>
+                            <span class="text-gray-700">Professional Staff</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-award text-yellow-600"></i>
+                            </div>
+                            <span class="text-gray-700">Quality Guarantee</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-heart text-yellow-600"></i>
+                            </div>
+                            <span class="text-gray-700">Customer Focused</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="#services" class="btn-primary px-6 py-3 rounded-md font-medium">Explore Our
+                            Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Why Choose Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">The reasons we stand out in the catering industry</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Premium Quality</h3>
+                    <p class="text-gray-600">We use only the freshest, highest quality ingredients to create delicious
+                        and memorable dishes.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hand-sparkles text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Hygiene & Safety</h3>
+                    <p class="text-gray-600">Our kitchen and serving staff follow strict hygiene protocols to ensure
+                        food safety at all times.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Timely Delivery</h3>
+                    <p class="text-gray-600">We understand timing is crucial. Our team ensures prompt setup and service
+                        for your event.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tags text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Affordable Pricing</h3>
+                    <p class="text-gray-600">We offer competitive pricing with customizable packages to fit various
+                        budgets and needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Comprehensive catering solutions for all your events</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-ring text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Wedding Catering</h3>
+                    <p class="text-gray-600 mb-4">Create the perfect culinary experience for your special day with our
+                        bespoke wedding catering services.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-briefcase text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Corporate Catering</h3>
+                    <p class="text-gray-600 mb-4">Impress clients and colleagues with professional catering for
+                        meetings, conferences, and corporate events.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-home text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Private Events</h3>
+                    <p class="text-gray-600 mb-4">From intimate dinners to large celebrations, we cater to all private
+                        events with personalized menus.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-utensils text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Buffet Services</h3>
+                    <p class="text-gray-600 mb-4">Elegant buffet setups with a wide variety of dishes to suit all tastes
+                        and dietary requirements.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-cookie-bite text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Snacks Services</h3>
+                    <p class="text-gray-600 mb-4">Light bites, canapés, and snack platters perfect for cocktail parties
+                        and informal gatherings.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+                    <div class="mb-4">
+                        <i class="fas fa-palette text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Orders</h3>
+                    <p class="text-gray-600 mb-4">Have specific requirements? We create custom menus tailored to your
+                        unique preferences and needs.</p>
+                    <a href="#request-form" class="text-yellow-600 font-medium">Learn More <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Our Menu</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">A diverse selection of culinary delights to satisfy
+                    every palate</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Appetizers -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/736x/40/53/87/4053875fbbd067c8ecde97c103c5bd98.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Appetizers</h3>
+                        <p class="text-gray-600 mb-4">Start your event with our delicious selection of starters and
+                            small bites.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Puff Puff</li>
+                            <li>• Samosa (Chicken / Vegetable)</li>
+                            <li>• Spring Rolls (Chicken / Vegetable)</li>
+                            <li>• Mini Sausage Rolls</li>
+                            <li>• Mini Meat Pie</li>
+                            <li>• Zobo</li>
+                            <li>• Chips</li>
+                            <li>• Kunu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Rice Dishes -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/1200x/09/c4/10/09c4103fbcca0e9371d25a4879806f33.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Rice Dishes</h3>
+                        <p class="text-gray-600 mb-4">Hearty and flavorful rice dishes that will satisfy all your
+                            guests.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Jollof Rice (Classic / Party Style)</li>
+                            <li>• Fried Rice</li>
+                            <li>• Coconut Rice</li>
+                            <li>• Native Jollof (Palm Oil Jollof)</li>
+                            <li>• Ofada Rice with Ayamase Sauce</li>
+                            <li>• Basmati Jollof</li>
+                            <li>• Rice & Beans with Sauce</li>
+                            <li>• White Rice + Stew (Beef/Chicken/Fish)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Swallow Meals -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/736x/8a/91/9d/8a919df55968c312e842192404e31b8c.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Swallow Meals</h3>
+                        <p class="text-gray-600 mb-4">Traditional Nigerian swallow meals with your choice of soups.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li><strong>Swallows:</strong></li>
+                            <li>• Eba</li>
+                            <li>• Pounded Yam</li>
+                            <li>• Fufu</li>
+                            <li>• Amala</li>
+                            <li>• Semovita</li>
+                            <li>• Wheat</li>
+                            <li><strong>Soups:</strong></li>
+                            <li>• Egusi</li>
+                            <li>• Efo Riro</li>
+                            <li>• Ogbono</li>
+                            <li>• Bitterleaf Soup</li>
+                            <li>• Edikaikong</li>
+                            <li>• Okra Soup</li>
+                            <li>• Afang Soup</li>
+                            <li>• Banga Soup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Protein Options -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/1200x/4b/07/f2/4b07f2ea6cdbdfd9a7f62f2376482eb9.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Protein Options</h3>
+                        <p class="text-gray-600 mb-4">Delicious protein selections to complement your meals.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Pepper Chicken</li>
+                            <li>• Grilled Chicken</li>
+                            <li>• Fried Chicken</li>
+                            <li>• Beef (Stew) </li>
+                            <li>• Turkey (Peppered )</li>
+                            <li>• Goat Meat (Stew)</li>
+                            <li>• Fresh Fish (Croaker / Tilapia)</li>
+                            <li>• Catfish Pepper Soup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Soups & Pepper Soup -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/1200x/a8/27/15/a8271568fcbadfbd2a3c3f20e5de1f9d.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2"> Pepper soups</h3>
+                        <p class="text-gray-600 mb-4">Warm and comforting soups perfect as starters or light meals.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li><strong>Pepper Soups:</strong></li>
+                            <li>• Goat Meat Pepper Soup</li>
+                            <li>• Chicken Pepper Soup</li>
+                            <li>• Catfish Pepper Soup</li>
+                            <li>• Assorted Meat Pepper Soup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Snacks -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://i.pinimg.com/736x/84/ef/07/84ef07c27787b67c071753e24ee2b4ef.jpg');">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Snacks</h3>
+                        <p class="text-gray-600 mb-4">Light bites and finger foods perfect for any occasion.</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Puff Puff</li>
+                            <li>• Samosas</li>
+                            <li>• Meat Pie</li>
+                            <li>• Egg Roll</li>
+                            <li>• Sausage Roll</li>
+                            <li>• Potato Chips</li>
+                            <li>• Plantain Chips</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#request-form" class="btn-primary px-6 py-3 rounded-md font-medium pulse">View Full Menu &
+                    Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Pricing & Packages</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Transparent pricing tailored to your event needs</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg fade-in">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">How Our Pricing Works</h3>
+                <p class="text-gray-600 mb-6">Our catering prices are determined by several factors to ensure you get
+                    the best value for your budget:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2">Menu Selection</h4>
+                        <p class="text-gray-600 text-sm">The complexity and ingredients of your chosen dishes affect the
+                            final price.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2">Number of Guests</h4>
+                        <p class="text-gray-600 text-sm">Larger events typically have a lower per-person cost due to
+                            economies of scale.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2">Additional Services</h4>
+                        <p class="text-gray-600 text-sm">Staffing, equipment rental, and special requests may incur
+                            extra charges.</p>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                    <!-- <h4 class="font-bold text-gray-800 mb-2">Sample Price Ranges</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><span class="font-medium">Basic Package:</span> ₦5,000 - ₦8,000 (Buffet style, limited menu
+                            options)</li>
+                        <li><span class="font-medium">Standard Package:</span> ₦8,000 - ₦12,000 (Wider selection,
+                            includes appetizers)</li>
+                        <li><span class="font-medium">Premium Package:</span> ₦12,000 - ₦20,000 (Full service, premium
+                            ingredients, custom menu)</li>
+                        <li><span class="font-medium">Luxury Package:</span> ₦20,000+ (Gourmet experience, exclusive
+                            ingredients, dedicated staff)</li>
+                    </ul>
+                </div> -->
+
+                    <p class="text-gray-600 mt-6 text-center">For an accurate price tailored to your specific event,
+                        please
+                        fill out our request form below.</p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Customer Testimonials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">What our clients say about our catering services</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"HEY HEY PEE Catering made our wedding day absolutely perfect! The
+                        food was exquisite, and the service was impeccable. Our guests are still talking about the
+                        delicious Jollof Rice!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Adeola Johnson</h4>
+                            <p class="text-gray-500 text-sm">Wedding Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"We've used HAY HAY PEE Catering for three corporate events now, and
+                        they
+                        consistently deliver exceptional quality and service. Their attention to detail is remarkable."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Chinedu Okoro</h4>
+                            <p class="text-gray-500 text-sm">Corporate Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The team at HAY HAY PEE Catering went above and beyond for my
+                        mother's 70th
+                        birthday. The food was delicious, presentation was beautiful, and the staff were so
+                        professional."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Funke Adebayo</h4>
+                            <p class="text-gray-500 text-sm">Private Event Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Instructions -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">How to Book Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Simple steps to secure our catering for your event</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 fade-in">
+                        <div class="bg-gray-50 p-6 rounded-lg h-full">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Booking Process</h3>
+                            <ol class="space-y-4">
+                                <li class="flex items-start">
+                                    <span
+                                        class="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                                    <p class="text-gray-600">Fill out the catering request form with your event details
+                                        and preferences.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span
+                                        class="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                                    <p class="text-gray-600">We'll contact you within 24 hours to discuss your
+                                        requirements and provide a customized quote.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span
+                                        class="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                                    <p class="text-gray-600">Review the proposal and make any necessary adjustments to
+                                        the menu or services.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span
+                                        class="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                                    <p class="text-gray-600">Confirm your booking with a deposit to secure your date.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span
+                                        class="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                                    <p class="text-gray-600">We'll handle all the details and deliver an unforgettable
+                                        catering experience!</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 fade-in">
+                        <div class="bg-gray-50 p-6 rounded-lg h-full">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Event Types We Cater For</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-birthday-cake text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Birthdays & Anniversaries</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-ring text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Weddings & Engagements</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-briefcase text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Corporate Meetings & Events</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-home text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">House Parties & Gatherings</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-umbrella-beach text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Outdoor Events & Picnics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-graduation-cap text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Graduations & Celebrations</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-users text-yellow-600 mr-3"></i>
+                                    <span class="text-gray-700">Conferences & Seminars</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Request Form -->
+    <section id="request-form" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Request Catering Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Fill out the form below and we'll get back to you with a
+                    customized quote</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md fade-in">
+                <form id="catering-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="event-type" class="block text-gray-700 mb-2">Event Type *</label>
+                            <select id="event-type" name="event-type" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                <option value="">Select Event Type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="house-party">House Party</option>
+                                <option value="outdoor">Outdoor Event</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="event-date" class="block text-gray-700 mb-2">Event Date *</label>
+                            <input type="date" id="event-date" name="event-date" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+
+                        <div>
+                            <label for="guests" class="block text-gray-700 mb-2">Number of Guests *</label>
+                            <input type="number" id="guests" name="guests" min="1" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="location" class="block text-gray-700 mb-2">Event Location *</label>
+                        <input type="text" id="location" name="location" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+
+                    <!-- <div class="mb-6">
+                        <label for="menu-preference" class="block text-gray-700 mb-2">Menu Preference</label>
+                        <select id="menu-preference" name="menu-preference"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <option value="">Select Preferred Menu</option>
+                            <option value="nigerian">Nigerian Dishes</option>
+                            <option value="continental">Continental Dishes</option>
+                            <option value="mixed">Mixed (Nigerian & Continental)</option>
+                            <option value="custom">Custom Menu</option>
+                        </select>
+                    </div> -->
+
+                    <div class="mb-6">
+                        <label for="budget" class="block text-gray-700 mb-2">Budget Range (For the event)</label>
+                        <select id="budget" name="budget"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <option value="">Select Budget Range</option>
+                            <option value="₦100,000 - ₦500,000">₦100,000 - ₦500,000</option>
+                            <option value="₦1,000,000 - ₦2,000,000">₦1,000,000 - ₦2,000,000</option>
+                            <option value="₦12,000,000 - ₦20,000,000">₦12,000,000 - ₦20,000,000</option>
+                            <option value="₦50,000,000+">₦50,000,000+</option>
+                            <option value="custom">Custom Budget</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="special-requests" class="block text-gray-700 mb-2">Special Requests or Dietary
+                            Requirements</label>
+                        <textarea id="special-requests" name="special-requests" rows="4"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            placeholder="Your custom request"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit"
+                            class="btn-primary px-8 py-3 rounded-md text-lg font-semibold pulse">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Answers to common questions about our catering services
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg fade-in">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">How far in advance should I book catering
+                            services?</h3>
+                        <p class="text-gray-600">We recommend booking at least 2-4 weeks in advance for smaller events
+                            and 2-3 months for weddings or large corporate events. However, we do accommodate
+                            last-minute requests when possible.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg fade-in">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Do you provide serving staff and equipment?
+                        </h3>
+                        <p class="text-gray-600">Yes, we offer full-service catering which includes professional serving
+                            staff, appropriate serving equipment, and cleanup. These services can be customized based on
+                            your event needs and budget.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg fade-in">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Can you accommodate dietary restrictions?</h3>
+                        <p class="text-gray-600">Absolutely! We're experienced in catering to various dietary needs
+                            including vegetarian, vegan, gluten-free, halal, and other specific requirements. Please
+                            mention any dietary restrictions in your request form.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg fade-in">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">What is your cancellation policy?</h3>
+                        <p class="text-gray-600">Cancellations made more than 14 days before the event receive a full
+                            refund of the deposit. Cancellations within 7-14 days receive a 50% refund. Cancellations
+                            within 7 days of the event are non-refundable.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg fade-in">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Do you offer tastings before booking?</h3>
+                        <p class="text-gray-600">Yes, we offer tasting sessions for wedding packages and large corporate
+                            events. There is a small fee for tastings which is deducted from your final bill if you
+                            proceed with booking our services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl font-bold text-gray-800">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Get in touch with our catering team</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
+                    <p class="text-gray-600 mb-2">+234 816 681 3640</p>
+                    <p class="text-gray-600">+234 802 376 6922</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Email Us</h3>
+                    <p class="text-gray-600 mb-2">hayhaypeecatering@gmail.com</p>
+                    <!-- <p class="text-gray-600">bookings@elitecatering.com</p> -->
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center fade-in">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
+                    <p class="text-gray-600">2. Ogoluwa Estate Road I Salawu</p>
+                    <p class="text-gray-600">Old Ife Road, Ibadan</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#request-form" class="btn-primary px-6 py-3 rounded-md font-medium pulse">Get a Quote</a>
+                <a href="tel:+2347040396758"
+                    class="ml-4 bg-gray-800 text-white px-6 py-3 rounded-md font-medium hover:bg-gray-700 transition">Call
+                    Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">HAY HAY PEE <span class="text-yellow-400">Catering</span></h3>
+                    <p class="text-gray-300 mb-4">Premium catering services for all your special events. Quality food,
+                        professional service, and unforgettable experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-yellow-400 transition">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-yellow-400 transition">Services</a></li>
+                        <li><a href="#menu" class="text-gray-300 hover:text-yellow-400 transition">Menu</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Wedding Catering</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Corporate Events</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Private Parties</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Buffet Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Custom Orders</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-yellow-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">2. Ogoluwa Estate Road I Salawu, Old Ife Road, Ibadan</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-yellow-400 mr-2"></i>
+                            <p class="text-gray-300">+234 802 376 6922</p>
+                            <p class="text-gray-300">+234 816 681 3640</p>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-yellow-400 mr-2"></i>
+                            <span class="text-gray-300">hayhaypeecatering@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&COPY; 2023 HEY HEY PEE. All rights reserved. | <a href="#"
+                        class="hover:text-yellow-400 transition">Privacy Policy</a> | <a href="#"
+                        class="hover:text-yellow-400 transition">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Typewriter Effect
+        const typewriterElement = document.getElementById('typewriter');
+        const texts = ['Your Events', 'Your Weddings', 'Your Business', 'Your Celebrations'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                typingSpeed = 1000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingSpeed = 500; // Pause before starting next text
+            }
+
+            setTimeout(typeWriter, typingSpeed);
+        }
+
+        // Start typewriter effect
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(typeWriter, 1000);
+        });
+
+        // Scroll animations
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.fade-in');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        document.addEventListener('DOMContentLoaded', checkVisibility);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Animated counters
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let currentValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+
+            function updateCounter() {
+                currentValue += increment;
+                if (currentValue < targetValue) {
+                    element.textContent = Math.floor(currentValue);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetValue;
+                }
+            }
+
+            updateCounter();
+        }
+
+        // Start counters when stats section is visible
+        const statsSection = document.querySelector('.bg-yellow-600');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('events-counter', 500);
+                    animateCounter('clients-counter', 350);
+                    animateCounter('years-counter', 13);
+                    animateCounter('menu-counter', 120);
+                    observer.unobserve(statsSection);
+                }
+            });
+        });
+
+        observer.observe(statsSection);
+
+        // Form submission to WhatsApp with SweetAlert
+        const cateringForm = document.getElementById('catering-form');
+
+        cateringForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const eventType = document.getElementById('event-type').value;
+            const eventDate = document.getElementById('event-date').value;
+            const guests = document.getElementById('guests').value;
+            const location = document.getElementById('location').value;
+            const budget = document.getElementById('budget').value;
+            const specialRequests = document.getElementById('special-requests').value;
+
+            // Validate required fields
+            if (!name || !email || !phone || !eventType || !eventDate || !guests || !location) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Missing Information',
+                    text: 'Please fill in all required fields marked with *',
+                    confirmButtonColor: '#d4af37'
+                });
+                return;
+            }
+
+            // Format date for display
+            const formattedDate = new Date(eventDate).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Create message
+            let message = `🌟 *NEW CATERING REQUEST* 🌟%0A%0A`;
+            message += `👤 *Name:* ${name}%0A`;
+            message += `📧 *Email:* ${email}%0A`;
+            message += `📞 *Phone:* ${phone}%0A`;
+            message += `🎉 *Event Type:* ${eventType}%0A`;
+            message += `📅 *Event Date:* ${formattedDate}%0A`;
+            message += `👥 *Number of Guests:* ${guests}%0A`;
+            message += `📍 *Location:* ${location}%0A`;
+            message += `💰 *Budget:* ${budget}%0A`;
+
+            if (specialRequests) {
+                message += `📝 *Special Requests:* ${specialRequests}%0A`;
+            }
+
+            message += `%0A_This request was submitted via the HAY HAY PEE Catering website_`;
+
+            // Use one of your actual WhatsApp numbers (remove the + and spaces)
+            const whatsappNumber = "2347066959140"; // or "2348166813640"
+
+            // Show confirmation with SweetAlert
+            Swal.fire({
+                title: 'Ready to Send?',
+                html: `We're about to open WhatsApp to send your catering request.<br><br>
+               <strong>Name:</strong> ${name}<br>
+               <strong>Event:</strong> ${eventType} on ${formattedDate}<br>
+               <strong>Guests:</strong> ${guests}`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#d4af37',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Send Now!',
+                cancelButtonText: 'Review Details'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Open WhatsApp with pre-filled message
+                    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+
+                    // Show success message
+                    Swal.fire({
+                        title: 'Request Sent!',
+                        html: `Thank you <strong>${name}</strong>!<br><br>
+                      We've opened WhatsApp for you to send your catering request to our team.<br><br>
+                      We'll get back to you within <strong>24 hours</strong> with a customized quote.`,
+                        icon: 'success',
+                        confirmButtonColor: '#d4af37'
+                    });
+
+                    // Reset form
+                    cateringForm.reset();
+                }
+            });
+        });
+        // Add floating animation to CTA buttons on scroll
+        window.addEventListener('scroll', function () {
+            const ctaButtons = document.querySelectorAll('.pulse');
+            ctaButtons.forEach(button => {
+                const rect = button.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    button.classList.add('pulse');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
